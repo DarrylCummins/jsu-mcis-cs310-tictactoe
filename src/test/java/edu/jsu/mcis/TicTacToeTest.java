@@ -29,16 +29,20 @@ public class TicTacToeTest
         TicTacToe t = new TicTacToe();
 		t.move(1, 0);
 		assertEquals("X", t.getLocation(1, 0));
+		t.move(0, 2);
+		assertEquals("O", t.getLocation(0, 2));
+		t.move(0, 1);
+		assertEquals("X", t.getLocation(0, 1));
+		t.move(1, 2);
+		assertEquals("O", t.getLocation(1, 2));
+		t.move(2, 2);
+		assertEquals("X", t.getLocation(2, 2));
 		t.move(1, 1);
 		assertEquals("O", t.getLocation(1, 1));
 		t.move(0, 0);
 		assertEquals("X", t.getLocation(0, 0));
 		t.move(2, 0);
 		assertEquals("O", t.getLocation(2, 0));
-		t.move(0, 1);
-		assertEquals("X", t.getLocation(0, 1));
-		t.move(0, 2);
-		assertEquals("O", t.getLocation(0, 2));
         assertEquals("O", t.getWinner());
     }
 	
@@ -115,6 +119,29 @@ public class TicTacToeTest
         assertEquals("O", t.getWinner());
     }
 
+	@Test
+    public void winTopRowAsO()
+	{
+        TicTacToe t = new TicTacToe();
+		t.move(2, 1);
+		assertEquals("X", t.getLocation(2, 1));
+		t.move(0, 2);
+		assertEquals("O", t.getLocation(0, 2));
+		t.move(2, 0);
+		assertEquals("X", t.getLocation(2, 0));
+		t.move(2, 2);
+		assertEquals("O", t.getLocation(2, 2));
+		t.move(1, 2);
+		assertEquals("X", t.getLocation(1, 2));
+		t.move(0, 0);
+		assertEquals("O", t.getLocation(0, 0));
+		t.move(1, 1);
+		assertEquals("X", t.getLocation(1, 1));
+		t.move(0, 1);
+		assertEquals("O", t.getLocation(0, 1));
+        assertEquals("O", t.getWinner());
+    }
+	
 	@Test
     public void testTieGame()
 	{
