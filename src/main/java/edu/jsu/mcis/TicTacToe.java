@@ -2,22 +2,26 @@ package edu.jsu.mcis;
 
 
 public class TicTacToe {
-    boolean xTurn;
-	String winner;
-	String arr[][];
+    private boolean xTurn;
+	private String winner;
+	private String arr[][];
+	private static final int ZERO = 0;
+	private static final int ONE = 1;
+	private static final int TWO = 2;
+	private static final int THREE = 3;
 	
     public TicTacToe()
 	{
 		xTurn = true;
-		arr = new String[3][3];
+		arr = new String[THREE][THREE];
 		setArrayToBlanks();
 	}
 	
 	public void setArrayToBlanks()
 	{
-		for(int i = 0; i < 3; i++)
+		for(int i = ZERO; i < THREE; i++)
 		{
-			for(int j = 0; j < 3; j++)
+			for(int j = ZERO; j < THREE; j++)
 			{
 				arr[i][j] = " ";
 			}
@@ -44,37 +48,37 @@ public class TicTacToe {
 	
 	public void checkWinner()
 	{
-		if (arr[0][2] != " " && arr[0][0].equals(arr[0][1]) && arr[0][1].equals(arr[0][2])) // top row win
+		if (arr[ZERO][TWO] != " " && arr[ZERO][ZERO].equals(arr[ZERO][ONE]) && arr[ZERO][ONE].equals(arr[ZERO][TWO])) // top row win
 		{
-			winner = arr[0][2];
+			winner = arr[ZERO][TWO];
 		}
-		else if (arr[1][1] != " " && arr[1][0].equals(arr[1][1]) && arr[1][1].equals(arr[1][2])) // mid row win
+		else if (arr[ONE][ONE] != " " && arr[ONE][ZERO].equals(arr[ONE][ONE]) && arr[ONE][ONE].equals(arr[ONE][TWO])) // mid row win
 		{
-			winner = arr[1][1];
+			winner = arr[ONE][ONE];
 		}
-		else if (arr[2][1] != " " && arr[2][0].equals(arr[2][1]) && arr[2][1].equals(arr[2][2])) // bot row win
+		else if (arr[TWO][ONE] != " " && arr[TWO][ZERO].equals(arr[TWO][ONE]) && arr[TWO][ONE].equals(arr[TWO][TWO])) // bot row win
 		{
-			winner = arr[2][1];
+			winner = arr[TWO][ONE];
 		}
-		else if (arr[1][0] != " " && arr[0][0].equals(arr[1][0]) && arr[1][0].equals(arr[2][0])) // left col win
+		else if (arr[ONE][ZERO] != " " && arr[ZERO][ZERO].equals(arr[ONE][ZERO]) && arr[ONE][ZERO].equals(arr[TWO][ZERO])) // left col win
 		{
-			winner = arr[1][0];
+			winner = arr[ONE][ZERO];
 		}
-		else if (arr[0][1] != " " && arr[0][1].equals(arr[1][1]) && arr[1][1].equals(arr[2][1])) // center col win
+		else if (arr[ZERO][ONE] != " " && arr[ZERO][ONE].equals(arr[ONE][ONE]) && arr[ONE][ONE].equals(arr[TWO][ONE])) // center col win
 		{
-			winner = arr[0][1];
+			winner = arr[ZERO][ONE];
 		}
-		else if (arr[1][2] != " " && arr[0][2].equals(arr[1][2]) && arr[1][2].equals(arr[2][2])) // right col win
+		else if (arr[ONE][TWO] != " " && arr[ZERO][TWO].equals(arr[ONE][TWO]) && arr[ONE][TWO].equals(arr[TWO][TWO])) // right col win
 		{
-			winner = arr[1][2];
+			winner = arr[ONE][TWO];
 		}
-		else if (arr[0][0] != " " && arr[0][0].equals(arr[1][1]) && arr[1][1].equals(arr[2][2])) // dia "\" win
+		else if (arr[ZERO][ZERO] != " " && arr[ZERO][ZERO].equals(arr[ONE][ONE]) && arr[ONE][ONE].equals(arr[TWO][TWO])) // dia "\" win
 		{
-			winner = arr[0][0];
+			winner = arr[ZERO][ZERO];
 		}
-		else if (arr[2][0] != " " && arr[0][2].equals(arr[1][1]) && arr[1][1].equals(arr[2][0])) // dia "/" win
+		else if (arr[TWO][ZERO] != " " && arr[ZERO][TWO].equals(arr[ONE][ONE]) && arr[ONE][ONE].equals(arr[TWO][ZERO])) // dia "/" win
 		{
-			winner = arr[2][0];
+			winner = arr[TWO][ZERO];
 		}
 		else
 		{
@@ -92,12 +96,10 @@ public class TicTacToe {
 		return winner;
 	}
 	
+	public void main (String[] args)
+	{
+		
+	}
 	// Haha!!! You can't actually play this game of Tic-Tac-Toe...
 	// The computer can, but you cannot.  :p 
 }
-
-
-// eparham@jsu.edu
-
-
-
