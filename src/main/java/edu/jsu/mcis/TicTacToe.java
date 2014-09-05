@@ -95,11 +95,6 @@ public class TicTacToe {
 	{
 		return winner;
 	}
-	
-	public void main (String[] args)
-	{
-		
-	}
 	// Haha!!! You can't actually play this game of Tic-Tac-Toe...
 	// The computer can, but you cannot.  :p 
 }
