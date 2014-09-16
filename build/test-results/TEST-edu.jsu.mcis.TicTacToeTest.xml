@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.jsu.mcis.TicTacToeTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2014-09-05T01:16:04" hostname="LenovoThinkPadX" time="0.016">
+  <properties/>
+  <testcase name="winLeftColumnAsX" classname="edu.jsu.mcis.TicTacToeTest" time="0.012"/>
+  <testcase name="testTieGame" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
+  <testcase name="winDiagonallyAsO" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
+  <testcase name="winDiagonallyAsX" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
+  <testcase name="winMiddleRowAsX" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
+  <testcase name="winTopRowAsO" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
+  <testcase name="winRightColumnAsX" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
+  <testcase name="winBottomRowAsO" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
+  <testcase name="winCenterColumnAsO" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
