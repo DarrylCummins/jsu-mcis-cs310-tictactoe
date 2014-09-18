@@ -8,9 +8,14 @@ public class TicTacToeKeywords {
 		ticTacToe = new TicTacToe();
 	}
 	
+	public void startApplication()
+	{
+		ticTacToe = new TicTacToe();
+	}
+	
 	public void markLocation(int row, int column)
 	{
-		ticTacToe.move(row, column);
+		ticTacToe.makeMove(row, column);
     }
     
     public String getLocation(int row, int col)

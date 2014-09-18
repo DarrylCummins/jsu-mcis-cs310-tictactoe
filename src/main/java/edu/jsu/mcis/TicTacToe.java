@@ -28,7 +28,7 @@ public class TicTacToe {
 		}
 	}
 	
-	public void move (int row, int column)
+	public void makeMove (int row, int column)
 	{
 		if (arr[row][column] == " ")
 		{
@@ -81,8 +81,26 @@ public class TicTacToe {
 			winner = arr[TWO][ZERO];
 		}
 		else
-		{
-			winner = "TIE";
+		{	
+			int count = 0;
+			for(int i = 0; i < THREE; i++)
+			{
+				for(int j = 0; j < THREE; j++)
+				{
+					if(arr[i][j] != " ")
+					{
+						count++;
+					}
+				}
+			}
+			if(count == 9)
+			{
+				winner = "TIE";
+			}
+			else
+			{
+				winner = "NONE";
+			}
 		}
 	}
 	
