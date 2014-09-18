@@ -78,7 +78,7 @@ public class TicTacToeGame extends JPanel implements MouseListener
 	public void displayResult()
 	{
 		(new Thread(new Runnable(){
-		public void run(){JOptionPane 	myPane = new JOptionPane();
+		public void run(){JOptionPane myPane = new JOptionPane();
 										myPane.showMessageDialog(null, 
 										"The winner is " + ttt.getWinner(),"Game Over", 0);
 										}	}	)	).start();

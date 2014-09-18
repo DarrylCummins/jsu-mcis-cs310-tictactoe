@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TicTacToe.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">jsu-mcis-cs310-tictactoe</a> &gt; <a href="index.source.html" class="el_package">edu.jsu.mcis</a> &gt; <span class="el_source">TicTacToe.java</span></div><h1>TicTacToe.java</h1><pre class="source lang-java linenums">package edu.jsu.mcis;
+
+
+public class TicTacToe {
+    private boolean xTurn;
+	private String winner;
+	private String arr[][];
+	private static final int ZERO = 0;
+	private static final int ONE = 1;
+	private static final int TWO = 2;
+	private static final int THREE = 3;
+	
+    public TicTacToe()
+<span class="fc" id="L14">	{</span>
+<span class="fc" id="L15">		xTurn = true;</span>
+<span class="fc" id="L16">		arr = new String[THREE][THREE];</span>
+<span class="fc" id="L17">		setArrayToBlanks();</span>
+<span class="fc" id="L18">	}</span>
+	
+	public void setArrayToBlanks()
+	{
+<span class="fc bfc" id="L22" title="All 2 branches covered.">		for(int i = ZERO; i &lt; THREE; i++)</span>
+		{
+<span class="fc bfc" id="L24" title="All 2 branches covered.">			for(int j = ZERO; j &lt; THREE; j++)</span>
+			{
+<span class="fc" id="L26">				arr[i][j] = &quot; &quot;;</span>
+			}
+		}
+<span class="fc" id="L29">	}</span>
+	
+	public void makeMove (int row, int column)
+	{
+<span class="fc bfc" id="L33" title="All 2 branches covered.">		if (arr[row][column] == &quot; &quot;)</span>
+		{
+<span class="fc bfc" id="L35" title="All 2 branches covered.">			if (xTurn == true)</span>
+			{
+<span class="fc" id="L37">				arr[row][column] = &quot;X&quot;;</span>
+			}
+			else
+			{
+<span class="fc" id="L41">				arr[row][column] = &quot;O&quot;;</span>
+			}
+<span class="fc bfc" id="L43" title="All 2 branches covered.">			xTurn = !xTurn;</span>
+		}
+<span class="fc" id="L45">		checkWinner();</span>
+		
+<span class="fc" id="L47">	}</span>
+	
+	public void checkWinner()
+	{
+<span class="fc bfc" id="L51" title="All 6 branches covered.">		if (arr[ZERO][TWO] != &quot; &quot; &amp;&amp; arr[ZERO][ZERO].equals(arr[ZERO][ONE]) &amp;&amp; arr[ZERO][ONE].equals(arr[ZERO][TWO])) // top row win</span>
+		{
+<span class="fc" id="L53">			winner = arr[ZERO][TWO];</span>
+		}
+<span class="fc bfc" id="L55" title="All 6 branches covered.">		else if (arr[ONE][ONE] != &quot; &quot; &amp;&amp; arr[ONE][ZERO].equals(arr[ONE][ONE]) &amp;&amp; arr[ONE][ONE].equals(arr[ONE][TWO])) // mid row win</span>
+		{
+<span class="fc" id="L57">			winner = arr[ONE][ONE];</span>
+		}
+<span class="fc bfc" id="L59" title="All 6 branches covered.">		else if (arr[TWO][ONE] != &quot; &quot; &amp;&amp; arr[TWO][ZERO].equals(arr[TWO][ONE]) &amp;&amp; arr[TWO][ONE].equals(arr[TWO][TWO])) // bot row win</span>
+		{
+<span class="fc" id="L61">			winner = arr[TWO][ONE];</span>
+		}
+<span class="fc bfc" id="L63" title="All 6 branches covered.">		else if (arr[ONE][ZERO] != &quot; &quot; &amp;&amp; arr[ZERO][ZERO].equals(arr[ONE][ZERO]) &amp;&amp; arr[ONE][ZERO].equals(arr[TWO][ZERO])) // left col win</span>
+		{
+<span class="fc" id="L65">			winner = arr[ONE][ZERO];</span>
+		}
+<span class="fc bfc" id="L67" title="All 6 branches covered.">		else if (arr[ZERO][ONE] != &quot; &quot; &amp;&amp; arr[ZERO][ONE].equals(arr[ONE][ONE]) &amp;&amp; arr[ONE][ONE].equals(arr[TWO][ONE])) // center col win</span>
+		{
+<span class="fc" id="L69">			winner = arr[ZERO][ONE];</span>
+		}
+<span class="fc bfc" id="L71" title="All 6 branches covered.">		else if (arr[ONE][TWO] != &quot; &quot; &amp;&amp; arr[ZERO][TWO].equals(arr[ONE][TWO]) &amp;&amp; arr[ONE][TWO].equals(arr[TWO][TWO])) // right col win</span>
+		{
+<span class="fc" id="L73">			winner = arr[ONE][TWO];</span>
+		}
+<span class="fc bfc" id="L75" title="All 6 branches covered.">		else if (arr[ZERO][ZERO] != &quot; &quot; &amp;&amp; arr[ZERO][ZERO].equals(arr[ONE][ONE]) &amp;&amp; arr[ONE][ONE].equals(arr[TWO][TWO])) // dia &quot;\&quot; win</span>
+		{
+<span class="fc" id="L77">			winner = arr[ZERO][ZERO];</span>
+		}
+<span class="fc bfc" id="L79" title="All 6 branches covered.">		else if (arr[TWO][ZERO] != &quot; &quot; &amp;&amp; arr[ZERO][TWO].equals(arr[ONE][ONE]) &amp;&amp; arr[ONE][ONE].equals(arr[TWO][ZERO])) // dia &quot;/&quot; win</span>
+		{
+<span class="fc" id="L81">			winner = arr[TWO][ZERO];</span>
+		}
+		else
+		{	
+<span class="fc" id="L85">			int count = 0;</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">			for(int i = 0; i &lt; THREE; i++)</span>
+			{
+<span class="fc bfc" id="L88" title="All 2 branches covered.">				for(int j = 0; j &lt; THREE; j++)</span>
+				{
+<span class="fc bfc" id="L90" title="All 2 branches covered.">					if(arr[i][j] != &quot; &quot;)</span>
+					{
+<span class="fc" id="L92">						count++;</span>
+					}
+				}
+			}
+<span class="fc bfc" id="L96" title="All 2 branches covered.">			if(count == 9)</span>
+			{
+<span class="fc" id="L98">				winner = &quot;TIE&quot;;</span>
+			}
+			else
+			{
+<span class="fc" id="L102">				winner = &quot;NONE&quot;;</span>
+			}
+		}
+<span class="fc" id="L105">	}</span>
+	
+	public String getLocation (int row, int column)
+	{
+<span class="fc" id="L109">		return arr[row][column];</span>
+	}
+	
+	public String getWinner()
+	{
+<span class="fc" id="L114">		return winner;</span>
+	}
+	
+	public void main (String[] args)
+	{
+		
+<span class="nc" id="L120">	}</span>
+	// Haha!!! You can't actually play this game of Tic-Tac-Toe...
+	// The computer can, but you cannot.  :p 
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>
